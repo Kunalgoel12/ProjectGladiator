@@ -1,0 +1,63 @@
+<div  >
+   
+    <table align="center" >
+      <tr> <h3>Loan Amount</h3></tr>
+      <tr>
+        <select #myselect1 (change)="loanamt(myselect1.value)" [(ngModel)]="maxloanamt">
+        <option  *ngFor="let l of loan" [value]="l"  >{{l}}</option>
+          </select>
+        </tr>  
+    <tr><h3>Loan Tenure</h3></tr>
+  <tr>
+    <select #myselect (change)="loantenure(myselect.value)"  [(ngModel)]="months"  >
+      <option [value]="months" selected="selected">{{months}}</option>
+      <option  *ngFor="let e of EmiMonths" [value]="e" >{{e}}</option>
+        </select>
+      </tr>
+      <tr><button (click)="change()" class="btn btn-info">Change</button></tr>
+  </table>
+  
+  <div style="color:dodgerblue" >
+    <h3><b>YOUR LOAN QUOTES</b></h3>
+    <hr>
+   <table style="width:100%">
+     <tr>
+       <th>
+         Loan Amount
+       </th>
+       <th>
+         Best Rate
+       </th>
+       <th>
+         EMI(Monthly)
+       </th>
+       <th>
+         Processing Fee
+       </th>
+       <th>
+         <Button class="btn btn-info" (click)="ApplyLoan()">Apply Loan</Button>
+       </th>
+     </tr>
+     <tr>
+       <td>
+         Rs.{{current_loanamt}}
+       </td>
+       <td>
+         {{current_intrest}}%
+       </td>
+       <td>
+         Rs.{{current_loanemi}}
+       </td>
+       <td>
+         Rs.{{current_processingfee}}
+         
+       </td>
+       <td>
+  
+       </td>
+     </tr>
+   </table>
+   
+  </div>
+  
+  

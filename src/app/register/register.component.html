@@ -1,0 +1,132 @@
+<div style="text-align: center;position: relative;  top: 20px;">
+    <h1><u>Register to Bonanza Bank for Apply Loan</u></h1>
+</div>
+<table align="center" style="background-color:lightgray;  border: solid black; position: relative;top:100px;width: 50%;height: 50%;">
+    <tr>
+        <td>
+            <label>First Name*</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control" [(ngModel)]="register.Firstname" required #fname="ngModel" />
+       
+        <p class="alert alert-danger" *ngIf="fname.touched && fname.invalid">
+            <span class="alert alert-danger" *ngIf="fname.errors.required">First name can not be empty</span>
+        </p>
+    </td>
+    </tr>
+    <tr>
+        <tr>
+            <td>
+                <label>Middle Name</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control"  [(ngModel)]="register.Middlename"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Last Name* </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" class="form-control"  [(ngModel)]="register.LastName" required  #l_name="ngModel"/>
+            
+            <p class="alert alert-danger" *ngIf="l_name.touched && l_name.invalid">
+                <span class="alert alert-danger" *ngIf="l_name.errors.required">Last name can not be empty</span>
+            </p> 
+        </td>        
+        </tr>
+        <tr>
+        <td>
+            <label>Password*</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" class="form-control"  [(ngModel)]="register.pass" required #pass="ngModel" minlength="" />
+            <p class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+                <span class="alert alert-danger" *ngIf="pass.errors.required">Last name can not be empty</span>
+            </p>  
+        </td>
+       
+    </tr>
+    <tr>
+        <td>
+            <label >Email Address* </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input placeholder="abc@gmail.com" class="form-control"   type="text" required  [(ngModel)]="register.EmailId" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" />
+            <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <span class="alert alert-danger" *ngIf="email.errors.required">EmailId can not be empty</span>
+                <span class="alert alert-danger" *ngIf="email.errors.pattern">Invalid Email</span>
+            </p> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Mobile No.*</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" class="form-control"  [(ngModel)]="register.Mobile" required pattern="[789][0-9]{9}" #mobile="ngModel"   />
+            <p class="alert alert-danger" *ngIf="mobile.touched && mobile.invalid">
+                <span class="alert alert-danger" *ngIf="mobile.errors.required">Mobile Number can not be empty</span>
+                <span class="alert alert-danger" *ngIf="mobile.errors.pattern">Enter 10 digit Mobile number</span>
+
+            </p> 
+        </td>
+    </tr>
+    <tr>
+        <tr>
+            <td>
+                <label>Date of Birth*</label>
+            </td>
+        </tr>
+        <tr>
+          <td>
+                <input type="date" class="form-control"  [(ngModel)]="register.DOB" #dob=ngModel required  />
+                <p class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+                    <span class="alert alert-danger" *ngIf="dob.errors.required">Date of birth can not be empty</span>
+                </p> 
+            </td>     
+        </tr>
+        <tr>
+            <td>
+                <label>Whats your Nick Name*(Security Question)</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                  <input type="text" class="form-control"  [(ngModel)]="register.security_Que" #sec=ngModel required  />
+                  <p class="alert alert-danger" *ngIf="sec.touched && sec.invalid">
+                      <span class="alert alert-danger" *ngIf="sec.errors.required">please fill the Security Question</span>
+                  </p> 
+              </td>     
+          </tr>
+        <br/>
+        <br/>
+
+        <tr style="text-align: center;">
+            <button (click)="submit()" class="btn btn-primary">Submit</button>
+        </tr>
+    </table>
+    <div *ngIf="value==400">
+<h3>EmailId already exist please try with another email!!</h3>
+    </div>
+    <div *ngIf="value==200" class="div1">
+        <h1>You Have Succesfully Registred!!</h1>
+     <h4>Click here to go to Login Page</h4>
+        <h4><a routerLinkActive="active" 
+        routerLink="/login">Log In</a></h4>
+    </div>
+     <div *ngIf="error==400" style="text-align: center;color: red;position: relative; top:34px;">
+       Please fill Required(*) Fields fields.
+     </div>

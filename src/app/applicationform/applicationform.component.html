@@ -1,0 +1,231 @@
+<button (click)="logout()" style="position: fixed;left: 1150px;top: 16px;" class="btn btn-dark">LogOut</button>
+
+
+<div class="mainDiv">
+    <h1>Welcome to Application Form for Vehicle Loan</h1>
+    <br/>
+    <div class="formDiv1">
+        <h1>Personal Details</h1>
+        <br/>
+            <label for=""><strong>First Name*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.f_name" required #f_name=ngModel/>
+            <p class="alert alert-danger" *ngIf="f_name.touched && f_name.invalid">
+                <span class="alert alert-danger" *ngIf="f_name.errors.required">First Name cannot be empty</span>
+            </p>
+            <br/>
+            <label for=""><strong>Middle Name</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.m_name"/>
+            <br/>
+
+            <label for=""><strong>Last Name*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.l_Name" required #l_name=ngModel/>
+            <p class="alert alert-danger" *ngIf="l_name.touched && l_name.invalid">
+                <span class="alert alert-danger" *ngIf="l_name.errors.required">Last Name cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Date of Birth*</strong></label>
+            <input type="date" class="form-control" [(ngModel)]="details.DOB" required #DOB=ngModel/>
+            <p class="alert alert-danger" *ngIf="DOB.touched && DOB.invalid">
+                <span class="alert alert-danger" *ngIf="DOB.errors.required">Date of Birth cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Gender*</strong></label>
+            <select class="form-control" [(ngModel)]="details.gender" required #gender=ngModel> 
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <p class="alert alert-danger" *ngIf="gender.touched && gender.invalid">
+                <span class="alert alert-danger" *ngIf="gender.errors.required">Gender cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Maritial Status*</strong></label>
+            <select class="form-control" [(ngModel)]="details.maritial_status" required #maritial_status=ngModel> 
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+            </select>
+            <p class="alert alert-danger" *ngIf="maritial_status.touched && maritial_status.invalid">
+                <span class="alert alert-danger" *ngIf="maritial_status.errors.required">Maritial Status cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Mobile*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.mob" required minlength="10" maxlength="10" #mob=ngModel/>
+            <p class="alert alert-danger" *ngIf="mob.touched && mob.invalid">
+                <span class="alert alert-danger" *ngIf="mob.errors.required">Mobile Number cannot be empty</span>
+                <span class="alert alert-danger" *ngIf="mob.errors.minlength">Mobile Number should have 10 digits</span>
+                <span class="alert alert-danger" *ngIf="mob.errors.maxlength">Mobile Number should have 10 digits</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Email*</strong></label> 
+            <input type="email" class="form-control" [(ngModel)]="details.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email=ngModel/>
+            <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <span class="alert alert-danger" *ngIf="email.errors.required">Email cannot be empty</span>
+                <span class="alert alert-danger" *ngIf="email.errors.pattern">Invalid Email</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Address Line 1*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.applicant_address_line1" required #applicant_address_line1=ngModel/>
+            <p class="alert alert-danger" *ngIf="applicant_address_line1.touched && applicant_address_line1.invalid">
+                <span class="alert alert-danger" *ngIf="applicant_address_line1.errors.required">Address cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Address Line 2</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.applicant_address_line2"/>
+            <br/>
+
+            <label for=""><strong>State*</strong></label>
+            <select class="form-control" [(ngModel)]="selectedState.id" (change)="onSelect($event.target.value)">
+                <option value="0">--Select--</option>
+                <option *ngFor="let state of states" value= {{state.id}}>{{state.name}}</option>
+              </select>
+            <!-- <p class="alert alert-danger" *ngIf="res_state.touched && res_state.invalid">
+                <span class="alert alert-danger" *ngIf="res_state.errors.required">Resident State cannot be empty</span>
+            </p> -->
+            <br/>
+
+            <label for=""><strong>City*</strong></label>
+            <select class="form-control" [(ngModel)]="details.city">
+                <option value="0">--Select--</option>
+                <option *ngFor="let district of districts " value= {{district.name}}>{{district.name}}</option>
+              </select>
+            <!-- <p class="alert alert-danger" *ngIf="city.touched && city.invalid">
+                <span class="alert alert-danger" *ngIf="city.errors.required">City cannot be empty</span>
+            </p> -->
+            <br/>
+
+            <label for=""><strong>Pin Code*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.pincode" required #pincode=ngModel/>
+            <p class="alert alert-danger" *ngIf="pincode.touched && pincode.invalid">
+                <span class="alert alert-danger" *ngIf="pincode.errors.required">Pincode cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>LandMark</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.landmark"/>    
+            <br/>
+
+    </div> 
+    <!-- <div class="formDiv2">
+        <h1>Employment Details</h1>
+        <br/>
+            <label for=""><strong>Employment Type*</strong></label>
+            <select class="form-control" [(ngModel)]="details.emp_type" required #emp_type=ngModel> 
+                <option value="Employee" selected>Employee</option>
+                <option value="Worker">Worker</option>
+                <option value="Self-Employed">Self-Employed</option>
+            </select>
+            <p class="alert alert-danger" *ngIf="emp_type.touched && emp_type.invalid">
+                <span class="alert alert-danger" *ngIf="emp_type.errors.required">Employment Type cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Annual Salary*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.yearly_salary" required #yearly_salary=ngModel/>
+            <p class="alert alert-danger" *ngIf="yearly_salary.touched && yearly_salary.invalid">
+                <span class="alert alert-danger" *ngIf="yearly_salary.errors.required">Yearly Salary cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Other Income</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="details.other_income"/>
+    </div>    -->
+    <!-- <div class="formDiv3">
+        <h1>Vehicle Details</h1>
+        <br/>
+            <label for=""><strong>Car Make*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.car_make" required #car_make=ngModel/>
+            <p class="alert alert-danger" *ngIf="car_make.touched && car_make.invalid">
+                <span class="alert alert-danger" *ngIf="car_make.errors.required">Car Make is required</span>
+            </p>
+            <br/>
+            <label for=""><strong>Car Model*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.car_model" required #car_model=ngModel/>
+            <p class="alert alert-danger" *ngIf="car_model.touched && car_model.invalid">
+                <span class="alert alert-danger" *ngIf="car_model.errors.required">Car Model is required</span>
+            </p>
+            <br/>
+            <label for=""><strong>Ex Showroom Price*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.Ex_showroom_price" required #Ex_showroom_price=ngModel/>
+            <p class="alert alert-danger" *ngIf="Ex_showroom_price.touched && Ex_showroom_price.invalid">
+                <span class="alert alert-danger" *ngIf="Ex_showroom_price.errors.required">Car Model is required</span>
+            </p>
+            <br/>
+            <label for=""><strong>On Road Price*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.onroad_price" required #onroad_price=ngModel/>
+            <p class="alert alert-danger" *ngIf="onroad_price.touched && onroad_price.invalid">
+                <span class="alert alert-danger" *ngIf="onroad_price.errors.required">On Road price is required</span>
+            </p>
+    </div> -->
+    <!-- <div class="formDiv4">
+        <h1>Loan Details</h1>
+        <br/>
+        <label for=""><strong>Loan Amount*</strong></label>
+        <input type="text" class="form-control" [(ngModel)]="ldetails.loan_amt" required #loan_amt=ngModel/>
+        <p class="alert alert-danger" *ngIf="loan_amt.touched && loan_amt.invalid">
+        <span class="alert alert-danger" *ngIf="loan_amt.errors.required">Loan Amount is required</span>
+        </p>
+        <br/>
+
+        <label for=""><strong>Loan Tenure*</strong></label>
+        <input type="text" class="form-control" [(ngModel)]="ldetails.loan_tenure" required #loan_tenure=ngModel/>
+        <p class="alert alert-danger" *ngIf="loan_tenure.touched && loan_tenure.invalid">
+        <span class="alert alert-danger" *ngIf="loan_tenure.errors.required">Loan Tenure is required</span>
+        </p>
+        <br/>
+        
+        <label for=""><strong>Loan Interest*</strong></label>
+        <input type="text" class="form-control" [(ngModel)]="ldetails.loan_intrest" required #loan_intrest=ngModel/>
+        <p class="alert alert-danger" *ngIf="loan_intrest.touched && loan_intrest.invalid">
+        <span class="alert alert-danger" *ngIf="loan_intrest.errors.required">Loan Interest is required</span>
+        (ngSubmit)="OnSubmit(Photo,Aadhar,Pan,Slips)
+    </p>
+        <br/>    
+    </div> -->
+    <div class="formDiv5">
+        <form name="form" #form="ngForm" (ngSubmit)="OnSubmit(Photo,Aadhar,Pan,Slips)"  >
+            <div>
+                <h1>Identity Details</h1>
+                <br/>
+                <label><strong>Upload Photo (Image)</strong></label>
+                <br/>
+                <img [src]="imageUrl1" style="width: 300px;height: 200px;">
+                <br/>
+                <input type="file" accept="image/*" #Photo id="myPhoto" (change)="handlePhoto($event.target.files)"/>
+                <br/><br/>
+                <label><strong>Upload Aadhar Card (Image)</strong></label>
+                <br/>
+                <img [src]="imageUrl2" style="width: 300px;height: 200px;">
+                <br/>
+                <input type="file" accept="image/*" #Aadhar id="myAadhar" (change)="handleAadhar($event.target.files)"/>
+                <br/><br/>
+                <label><strong>Upload PAN Card (Image)</strong></label>
+                <br/>
+                <img [src]="imageUrl3" style="width: 300px;height: 200px;">
+                <br/>
+                <input type="file" accept="image/*" #Pan id="myPan" (change)="handlePan($event.target.files)"/>
+                <br/><br/>
+                <label><strong>Upload Last 6 months salary slips (Image)</strong></label>
+                <br/>
+                <img [src]="imageUrl4" style="width: 300px;height: 200px;">
+                <br/>
+                <input type="file" accept="image/*" #Slips id="mySlips" (change)="handleSlips($event.target.files)"/>
+        
+                <br/>
+                <br/>
+                <button class="btn btn-info" (click)="UserDetail()"><strong>Submit Application</strong></button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+

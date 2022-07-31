@@ -1,0 +1,46 @@
+
+<h2><strong>Bonanza Loans</strong> </h2>
+<h3>Welcome Admin</h3>
+<form name="frmLogin">
+    <table align="center" style="background-color:lightgray;  border: solid black; position: relative;top:100px;width: 30%;height: 50%;">
+        <tr>
+            <td>
+                <label>Username</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text"  [(ngModel)]="admindata.username" class="form-control" name="username" required #email=ngModel/>
+                <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                    <span class="alert alert-danger" *ngIf="email.errors.required">Username can not be empty</span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Password</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" [(ngModel)]="admindata.password" class="form-control" name="password" required #pass=ngModel />
+                <p class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+                    <span class="alert alert-danger" *ngIf="pass.errors.required">Username can not be empty</span>
+                </p>
+            </td>
+        </tr>
+        <br/>
+
+        <tr style="text-align: center;">
+            <td>
+            <button (click)="admin()" class="btn btn-info" >Login</button>
+                </td>
+                </tr>
+    </table>
+    </form>
+
+              
+
+   <div *ngIf="result==400" style="text-align: center; position: relative; color: red;top: 130px;">
+     Invlid Admin Username or Password!!
+   </div>             

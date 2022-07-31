@@ -1,0 +1,28 @@
+<br/>
+<br/>
+
+
+<label><strong>Email</strong></label>
+<br/>
+<input class="form-control" type="text" [(ngModel)]="forgot.Email">
+<br/>
+<label><strong>What's Your Nick Name(security Question)</strong></label>
+<br/>
+<input class="form-control" type="text" [(ngModel)]="forgot.security_Que">
+<br/>
+<label><strong>Enter New Password</strong></label>
+<br/>
+<input class="form-control" type="text" [(ngModel)]="forgot.pass">
+<br/>
+<button (click)="change()">Change Password</button>
+<div *ngIf="result==400" style="color: red;" >
+Wrong Email or Security Question!!
+<br/>
+please try again
+</div>
+<div *ngIf="result==200" >
+    Password Changed Successfuly
+    <br/>
+    <a routerLinkActive="active" 
+    routerLink="/login">Go To Login</a>
+</div>

@@ -1,0 +1,119 @@
+<div style="position: fixed;left: 350px;font-family: 'Times New Roman', Times, serif;  top: 20px; color:black;">
+  <h1><u><strong>Welcome to Bonanza Bank EMI Calculator</strong> </u></h1>
+  <br/>
+  <br/>
+  <br/>
+
+</div>
+
+<div class="container" style="position: fixed;left: 250px;top: 100px;" >
+    <div class="spacer">
+      <div class="row">
+        <div class="col-lg-8  col-lg-offset-1">
+          <div class="well">
+  
+            <div class="form-group">
+              <div class="col-md-12">
+                <span class="left-title">
+                  <h3><b>Vehicle Loan Amount</b></h3>
+                  <h3><b></b></h3>
+                </span>
+                <input type="number"  max=2000000 min=100000 style="width:44%;float:right;" class="form-control" (blur)="tbupdate(0)"
+                  [(ngModel)]="query.amount" placeholder="Loan Amount" name="pemi.highValue" />
+              </div>
+              
+              <ng5-slider [(value)]="pemi.value" [options]="poptions" (userChangeEnd)="update()">
+              </ng5-slider>
+            </div>
+  
+            <hr />
+  
+            <div class="form-group">
+              <div class="col-md-12">
+                <span class="left-title">
+                    <h3><b>Interest Rate</b></h3> 
+                </span>
+                <input type="number" step=".1" min="5" max="20" style="width:44%;float:right;" class="form-control" (blur)="tbupdate(1)"
+                  [(ngModel)]="query.interest" placeholder="Interest Rate" name="remi.highValue" />
+              </div>
+              <ng5-slider [(value)]="remi.value" [options]="roptions" (userChangeEnd)="update()">
+              </ng5-slider>
+            </div>
+  
+            <hr />
+  
+            <div class="form-group">
+              <div class="col-md-10">
+                <span class="left-title"><h3><b>Loan Tenure</b></h3></span>
+                <input type="number" *ngIf="yrToggel" class="form-control" (blur)="tbupdate(2)" max="0" min="7"
+                  placeholder="Loan Tenure in Yr" [(ngModel)]="query.tenureYr" style="width:30%;float:right;">
+                <input type="number" *ngIf="!yrToggel" class="form-control" (blur)="tbupdate(3)" max="0" min="84"
+                  placeholder="Loan Tenure in Mo" [(ngModel)]="query.tenureMo" style="width:30%;float:right;">
+              </div>
+              <div class="col-md-2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" [ngClass]="{'active':yrToggel}" 
+                    (click)="yrToggel=true;update()" type="button">Yr</button>
+                  <button class="btn btn-outline-secondary" [ngClass]="{'active':!yrToggel}"
+                    (click)="yrToggel=false;update()" type="button">Mo</button>
+                </div>
+              </div>
+              <ng5-slider *ngIf="yrToggel" [(value)]="temi.value" [options]="toptions" (userChangeEnd)="update()">
+              </ng5-slider>
+              <ng5-slider *ngIf="!yrToggel" [(value)]="memi.value" [options]="moptions" (userChangeEnd)="update()">
+              </ng5-slider>
+            </div>
+  
+  
+          </div>
+  
+        </div>
+        <div class="col-lg-3">
+          <div class="well">
+  
+            <div class="jusify-center">
+              <h5>
+                Loan EMI
+              </h5>
+              <span class="result">
+                {{result.emi || "--"}}
+              </span>
+            </div>
+  
+            <hr />
+  
+            <div>
+              <h5>
+                Total Interest Payable
+              </h5>
+              <span class="result">
+                {{result.interest || "--"}}
+              </span>
+            </div>
+  
+            <hr />
+            <div>
+              <h5>
+                Total Payment
+              </h5>
+              <h6>
+                (Principal + Interest)
+              </h6>
+              <span class="result">
+                {{result.total || "--"}}
+              </span>
+            </div>     
+          </div>
+        </div>
+        <br/><br/>
+        
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  
+  
+  

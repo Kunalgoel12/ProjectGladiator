@@ -1,0 +1,29 @@
+.insidediv1{
+    width: 300px;
+    
+    padding: 50px;
+    margin: 20px;
+    font-size: large;
+    position: relative;
+}
+.insidediv2{
+    width: 300px;
+    
+    padding: 50px;
+    margin: 20px;
+    font-size: large;
+    position: relative;
+
+}
+.div1{
+    position: relative;
+    left: 50px;
+    font-size:20px ;
+}
+.div2{
+    position: relative;
+    left: 50px;
+    
+    font-size:20px ;
+
+}

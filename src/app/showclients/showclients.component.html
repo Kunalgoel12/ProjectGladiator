@@ -1,0 +1,19 @@
+<h1>Welcome to the List of our Clients</h1>
+<div>
+    <table class="table table-striped table-responsive-md btn-table">
+        <thead>
+            <tr>
+                <th>Applicant User id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <p *ngFor="let c of clients">
+                <tr>
+                    <td>{{c.user_id}}</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td><button (click)="details(c)">View Application</button></td>
+                </tr>
+            </p>
+        </tbody>
+    </table>
+</div>

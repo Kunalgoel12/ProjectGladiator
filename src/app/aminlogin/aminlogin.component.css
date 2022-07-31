@@ -1,0 +1,11 @@
+h2{text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 100px;
+    color: black;
+}
+h3{text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    position: relative;
+  top: 85px;
+    color: black;
+}

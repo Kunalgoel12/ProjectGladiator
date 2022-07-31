@@ -1,0 +1,129 @@
+<div>
+    <table border="1" class="table table-striped table-responsive-md btn-table">
+        <thead>
+            <th>
+            <strong>Personal Details</strong>    
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>First Name</td>
+                <td>{{finalDetails.f_name}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{finalDetails.l_Name}}</td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>{{finalDetails.DOB | date}}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{finalDetails.gender}}</td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>{{finalDetails.mob}}</td>
+            </tr>
+            <tr>
+                <td>Email id</td>
+                <td>{{finalDetails.email}}</td>
+            </tr>
+            <tr>
+                <td>Applicant Address Line 1</td>
+                <td>{{finalDetails.applicant_address_line1}}</td>
+            </tr>
+            <tr>
+                <td>Applicant Address Line 2</td>
+                <td>{{finalDetails.applicant_address_line2}}</td>
+            </tr>
+            <tr>
+                <td>Resident State</td>
+                <td>{{finalDetails.res_state}}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{finalDetails.city}}</td>
+            </tr>
+            <tr>
+                <td>Pin Code</td>
+                <td>{{finalDetails.pincode}}</td>
+            </tr>  
+            <tr>
+                <td>Landmark</td>
+                <td>{{finalDetails.landmark}}</td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td>{{finalDetails.maritial_status}}</td>
+            </tr>
+        </tbody>
+        
+        <thead>
+            <th>
+                <strong>Employment Details</strong>    
+            </th>
+        </thead>  
+        <tbody>
+            <tr>
+                <td>Employment Type</td>
+                <td>{{finalDetails.emp_type}}</td>
+            </tr>
+            <tr>
+                <td>Applicant Yearly Salary</td>
+                <td>{{finalDetails.yearly_salary}}</td>
+            </tr>
+            <tr>
+                <td>Applicant Other Income</td>
+                <td>{{finalDetails.other_income}}</td>
+            </tr>  
+        </tbody>  
+        <thead>
+            <th>
+                <strong>Loan Details</strong>    
+            </th>
+        </thead> 
+        <tbody>
+            <tr>
+                <td>Loan Amount</td>
+                <td>{{finalDetails.loan_amt}}</td>
+            </tr>
+            <tr>
+                <td>Loan Tenure</td>
+                <td>{{finalDetails.loan_tenure}}</td>
+            </tr>
+            <tr>
+                <td>Loan Interest</td>
+                <td>{{finalDetails.loan_intrest}}</td>
+            </tr> 
+            <tr>
+                <td>Loan EMI</td>
+                <td>{{finalDetails.loan_emi}}</td>
+            </tr>  
+        </tbody> 
+        <thead>
+            <th>
+                <strong>Vehicle Details</strong>    
+            </th>
+        </thead> 
+        <tbody>
+            <tr>
+                <td>Car Make</td>
+                <td>{{finalDetails.car_make}}</td>
+            </tr>
+            <tr>
+                <td>Car Model</td>
+                <td>{{finalDetails.car_model}}</td>
+            </tr>
+            <tr>
+                <td>Ex Showroom Price</td>
+                <td>{{finalDetails.Ex_showroom_price}}</td>
+            </tr> 
+            <tr>
+                <td>On Road Price</td>
+                <td>{{finalDetails.onroad_price}}</td>
+            </tr>  
+        </tbody> 
+    </table>
+</div>

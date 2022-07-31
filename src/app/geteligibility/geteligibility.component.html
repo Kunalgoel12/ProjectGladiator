@@ -1,0 +1,111 @@
+<button (click)="logout()" style="position: fixed;left: 1150px;top: 16px;" class="btn btn-dark">LogOut</button>
+
+<div class="mainDiv"  onload="resetSelection()">
+    <h1>Check Your Eligibility for Vehicle Loan</h1>
+    <br/>
+    <div class="formDiv1">
+        <h1>Applicant Details</h1>
+        <br/>
+        <label for=""><strong>Date of birth*</strong></label>
+        <input type="date" class="form-control" [(ngModel)]="eligible.dob" required #dob=ngModel/>
+        <p class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+            <span class="alert alert-danger" *ngIf="dob.errors.required">Date of birth is required</span>
+        </p>
+        <br/>
+
+        <label for=""><strong>Gender*</strong></label>
+        <select class="form-control" [(ngModel)]="eligible.gender" required #gender=ngModel> 
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <p class="alert alert-danger" *ngIf="gender.touched && gender.invalid">
+            <span class="alert alert-danger" *ngIf="gender.errors.required">Gender cannot be empty</span>
+        </p>
+        <br/>
+    </div>
+    <div class="formDiv2">
+        <h1>Vehicle Details</h1>
+        <br/>
+            <label for=""><strong>Car Make*</strong></label>
+            
+          
+            <select  (change)="onSelect($event.target.value)" class="form-control" >
+                <option value="0" disabled selected value="">--Select--</option>
+                <option *ngFor="let brand of brands" value= {{brand.id}}>{{brand.name}}</option>
+              </select>
+              <!-- <p class="alert alert-danger" *ngIf="car_make.touched && car_make.invalid">
+                <span class="alert alert-danger" *ngIf="car_make.errors.required">Car Make is required</span>
+            </p> -->
+            <br/>
+            <label for=""><strong>Car Model*</strong></label>
+            
+            
+            <select [(ngModel)]="vdetails.car_model"  required #car_model=ngModel class="form-control" >
+                <option value="0" disabled selected value="">--Select--</option>
+                <option *ngFor="let model of models " value= {{model.name}}>{{model.name}}</option>
+              </select>
+              <p class="alert alert-danger" *ngIf="car_model.touched && car_model.invalid">
+                <span class="alert alert-danger" *ngIf="car_model.errors.required">Car Model is required</span>
+            </p> 
+
+            <label for=""><strong>Ex Showroom Price*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.Ex_showroom_price" required #Ex_showroom_price=ngModel/>
+            <p class="alert alert-danger" *ngIf="Ex_showroom_price.touched && Ex_showroom_price.invalid">
+                <span class="alert alert-danger" *ngIf="Ex_showroom_price.errors.required">Ex-Showroom Price is required</span>
+            </p>
+            <br/>
+            <label for=""><strong>On Road Price*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="vdetails.onroad_price" required #onroad_price=ngModel/>
+            <p class="alert alert-danger" *ngIf="onroad_price.touched && onroad_price.invalid">
+                <span class="alert alert-danger" *ngIf="onroad_price.errors.required">On Road price is required</span>
+            </p>
+    </div>
+    <div class="formDiv3">
+        <h1>Employment Details</h1>
+        <br/>
+            <label for=""><strong>Employment Type*</strong></label>
+            <select class="form-control" [(ngModel)]="employementdetail.emp_type" required #emp_type=ngModel> 
+                <option value="Employee" selected>Employee</option>
+                <option value="Worker">Worker</option>
+                <option value="Self-Employed">Self-Employed</option>
+            </select>
+            <p class="alert alert-danger" *ngIf="emp_type.touched && emp_type.invalid">
+                <span class="alert alert-danger" *ngIf="emp_type.errors.required">Employment Type cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Annual Salary*</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="employementdetail.yearly_salary" required #yearly_salary=ngModel/>
+            <p class="alert alert-danger" *ngIf="yearly_salary.touched && yearly_salary.invalid">
+                <span class="alert alert-danger" *ngIf="yearly_salary.errors.required">Yearly Salary cannot be empty</span>
+            </p>
+            <br/>
+
+            <label for=""><strong>Other Income</strong></label>
+            <input type="text" class="form-control" [(ngModel)]="employementdetail.other_income"/>
+            <br/>
+            <br/>
+            <button class="btn btn-success" (click)="checkEligibility()"><strong>Check Eligibility</strong></button>
+    </div> 
+    <div *ngIf="showbutton;else notShow" class="formDiv3">
+        <p >
+            <strong>{{eligibleMsg}}</strong>
+            <br/><br/>
+            
+            <button class="btn btn-warning" (click)=proceed()>Proceed</button>
+
+        </p>              
+    </div>
+
+    <ng-template class="formDiv3" #notShow>
+        <p>
+            <strong>{{eligibleMsg}}</strong>
+        </p>
+    </ng-template>
+
+</div>
+
+ <div *ngIf="error==400" style="color: red;text-align:center;position: relative;top:1px;" >
+Please fill required(*) fields
+ </div>

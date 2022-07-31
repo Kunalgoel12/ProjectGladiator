@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    line-height: 150%;
+    text-shadow: 0 2px 2px white;
+  }
+  section {
+    color:dodgerblue;
+    text-align: justify;
+  }
+  
+  div {
+    height: 100%;
+  }
+  
+  
+  article {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  }
+  
+  h1 {
+    font-size: 2.75rem;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+    padding:40px;
+    font-family:serif;
+    color:teal;
+  
+  }
+  h3{
+      padding :20px;
+      text-align: left;
+      font-family:cursive ;
+      color:lightseagreen
+  }
+  
+  
+  .container {
+    display: table;
+    width: 100%;
+  }
+  
+  .left-half {
+    background-color: white;
+    position: absolute;
+    left: 0px;
+    width: 600px;
+    
+  
+  }
+  
+  .right-half {
+    background-color: white;
+    position: absolute;
+    right: 20px;
+    width: 600px;
+    color:grey;
+  }
+  li{
+      color:lightseagreen;
+  }

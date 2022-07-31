@@ -1,0 +1,63 @@
+
+<div  style="position: relative;text-align: center;top:100px;">
+    <h1 >Welcome to Bonanza Bank</h1>
+</div>
+
+<div>
+    <br/>
+  <table align="center" style="background-color:lightgray;  border: solid black; position: relative;top:100px;width: 30%;height: 50%;">
+
+    <tr>
+            <td>
+                <label>Username</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               
+             <input type="text"  [(ngModel)]="log.EmailId" class="form-control" name="email" required #email=ngModel />
+             <p class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <span class="alert alert-danger" *ngIf="email.errors.required">Username can not be empty</span>
+            </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Password</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" [(ngModel)]="log.Pass" class="form-control" name="pass" required #pass=ngModel />
+                <p class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
+                    <span class="alert alert-danger" *ngIf="pass.errors.required">Username can not be empty</span>
+                </p>
+            </td>
+        </tr>
+        <br/>
+        <tr style="text-align: center;">
+            <td>
+                <button (click)="login()"class="btn btn-primary">Login</button>
+            </td>
+
+                </tr>
+                <br/>
+                <tr>
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not a User?
+                  
+                    <a routerLinkActive="active" 
+                     routerLink="/register">Register Now</a>
+               
+                    </tr>
+                <div>
+                  &nbsp;  &nbsp;  &nbsp;  &nbsp;   Forget Password?
+                     <a routerLinkActive="active" 
+                    routerLink="/forgot">clickhere</a>
+                </div>
+                    <p *ngIf="value==0" style="color: red;">
+                    Invalid Username or Password!!! 
+                </p>
+            
+        </table>
+</div>
+

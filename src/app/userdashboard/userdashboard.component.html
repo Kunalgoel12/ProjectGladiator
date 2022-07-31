@@ -1,0 +1,62 @@
+<button (click)="logout()" style="position: fixed;left: 1150px;top: 16px;" class="btn btn-dark">LogOut</button>
+
+<div   >
+    <button (click)="userdetail()" class="insidediv1" >
+      UserDetail
+    </button>
+</div>
+<div *ngIf="click1" class="div2" >
+<br/>
+<b>UserId:</b>{{userid}}
+<br/>
+<b>Name:</b>{{username}}
+</div>
+<br/>
+<button (click)="applicantdetail()" class="insidediv2" >Loan Detail And Apply for new Vehicle Loan</button>
+<div *ngIf="detail!=null && click2" class="div1" style="font: bold;">
+  
+
+   <strong>Loan Ammount:</strong>
+   Rs. {{detail.loan_amt}}
+   <br/>
+   <strong>LoanInterest: </strong>
+  {{detail.loan_intrest}}%
+  <br/>
+  <strong> LoanEmi:  </strong>
+  Rs.{{detail.loan_emi}}
+  <br/>
+  <strong> Loan Tenure: </strong>
+    {{detail.loan_tenure}} Months
+  <br/>
+  <strong>Loan Approved Date:</strong>
+  {{detail.loan_start_date| date}}
+  <br/>
+  <strong>   Loan Status:</strong>
+<br/>
+  <div *ngIf="detail.application_status=='Not Checked'&& detail.Approval_status==false">
+Your Application is pending from bank end...
+  </div>
+  <div *ngIf="detail.application_status=='Checked'&& detail.Approval_status==false">
+    Your Application is Rejected..
+      </div>
+      <div *ngIf="detail.application_status=='Checked'&& detail.Approval_status==true">
+        Your Application is approved!!
+        <br/>
+        Please Visit to our Nearest Bonanza branch.
+          </div>
+
+</div>
+<div *ngIf="detail==null && click2">
+&nbsp;&nbsp;  You have Not Applied for any loan
+<a routerLinkActive="active" 
+        routerLink="/geteligiblity" (click)="apply()"><b>Click here to apply for loan</b></a> 
+
+      </div>
+   
+ 
+      <!-- <a routerLinkActive="active" 
+        routerLink="/geteligiblity" (click)="apply()"><b>Apply Loan</b></a>  -->
+      
+<!-- <div *ngIf="!notapplied">
+You have not Applied for Loan
+</div> -->
